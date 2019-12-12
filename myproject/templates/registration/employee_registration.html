@@ -1,0 +1,90 @@
+{% extends 'myapp/layout3.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="profile-content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet light">
+                    <div class="portlet-title tabbable-line">
+                        <div class="caption caption-md">
+                            <i class="icon-globe theme-font hide"></i>
+                            <span class="caption-subject font-blue-madison bold uppercase" align="center">Employee Registration</span>
+                        </div><br><br><br>
+<form action="" method="POST" id="login-form" name="employee">
+    {% csrf_token %}
+    
+    <div class="form-group">
+            <label class="control-label">Company Name</label>
+            <select class="form-control" id="company_name" name="company_name">
+                {% for c in com %}
+                    <option value="{{ c.id }}">{{ c.company_name }}</option>
+                {% endfor %}
+            </select>
+         </div> 
+    <div class="form-group">
+        <label class="control-label">Employee Name</label>
+        <input type="text" name="employee_name" id="employee_name" class="form-control"/>
+    </div>
+    <div class="form-group">
+            <label class="control-label">Phone Number</label>
+            <input type="text" name="phone_number" id="phone_number" class="form-control"/>
+        </div>
+    <div class="form-group">
+        <label class="control-label">Note</label>
+        <input type="text" name="note" id="note" class="form-control"/>
+    </div>
+    <div class="form-group">
+            <label class="control-label">Designation</label>
+            <input type="text" name="designation" id="designation" class="form-control"/>
+        </div>
+    <div class="form-group">
+        <label class="control-label">Email</label>
+        <input type="email" name="employee_email" id="employee_email" class="form-control"/>
+    </div>
+    
+    
+    <div class="margin-top-10">
+        
+        <input class="btn green-haze" type="submit" name="btnform2" />
+        <a href="javascript:;" class="btn default">
+        Cancel </a>
+    </div>
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+            <form id="login-form" class="form" method="post" action="{% url 'employee_registration' %}">
+                <span class="login100-form-title p-b-33">
+                    <h1><strong>Employee Registration Form </strong></h1>
+                </span>
+                {% csrf_token %}
+
+                <table align="center">
+                    {{ form2.as_p }}
+                    </table>
+                           
+                <div class="container-login100-form-btn m-t-20">
+                    <button class="login100-form-btn">
+                        Register
+                    </button>
+                </div>
+            </form> -->
+
+
+{% endblock %}
